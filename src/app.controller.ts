@@ -19,8 +19,13 @@ export class AppController {
     private readonly usersService: UsersService,
   ) {}
 
+  /**
+   * This method checks if the app is working.
+   *
+   * @returns {Promise<string>} The status of the app along with the current date and time.
+   */
   @Get()
-  async isWorking() {
+  async isWorking(): Promise<string> {
     return (
       'App is Working - ' +
       new Date().toDateString() +
@@ -29,6 +34,13 @@ export class AppController {
     );
   }
 
+  /**
+   * Logs in a user.
+   *
+   * @param {Object} req - The request object.
+   * @param {Object} req.user - The user object.
+   * @returns {Promise} - A promise resolving to the result of the login operation.
+   */
   @UseGuards(AuthGuard('local'))
   @Post('auth/login')
   async login(@Request() req) {

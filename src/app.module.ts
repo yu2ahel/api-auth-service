@@ -11,18 +11,17 @@ const mongooseConnectionOptions = {
   localAddress: undefined,
   localPort: undefined,
   lookup: undefined,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
 };
-console.log(
+/*console.log(
   'someData',
   process.env.DB_USERNAME,
   process.env.DB_PASSWORD,
   process.env.DB_HOST,
-);
+);*/
 const encodedPassword = encodeURIComponent(process.env.DB_PASSWORD);
 const uri = `mongodb+srv://${process.env.DB_USERNAME}:${encodedPassword}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=Cluster0`;
-console.log('asd', uri);
+
+// console.log('asd', uri);
 
 @Module({
   imports: [
