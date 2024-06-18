@@ -5,7 +5,7 @@ export const Swagger_API_Auth_Service = {
     title: 'API Auth Service',
     description: 'API documentation for Auth Service',
   },
-  host: 'localhost:3000',
+  // host: 'localhost:3000',
   basePath: '/',
   schemes: ['http', 'https'],
   paths: {
