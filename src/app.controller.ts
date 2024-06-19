@@ -30,7 +30,8 @@ export class AppController {
       'App is Working - ' +
       new Date().toDateString() +
       ' ' +
-      new Date().toTimeString()
+      new Date().toTimeString() +
+      '.\nPlease check the API documentation at /api-docs'
     );
   }
 

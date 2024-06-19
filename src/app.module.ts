@@ -4,6 +4,9 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { WpIntegrationService } from './wp-integration/wp-integration.service';
+import { WpIntegrationController } from './wp-integration/wp-integration.controller';
+import { HttpModule } from '@nestjs/axios';
 
 const mongooseConnectionOptions = {
   family: undefined,
@@ -26,10 +29,11 @@ const uri = `mongodb+srv://${process.env.DB_USERNAME}:${encodedPassword}@${proce
 @Module({
   imports: [
     UsersModule,
+    HttpModule,
     AuthModule,
     MongooseModule.forRoot(uri, mongooseConnectionOptions),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, WpIntegrationController],
+  providers: [AppService, WpIntegrationService],
 })
 export class AppModule {}
