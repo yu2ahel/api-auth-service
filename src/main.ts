@@ -1,8 +1,7 @@
 import { config } from 'dotenv';
-import { version } from '../package.json';
 
 config();
-process.env.APP_VERSION = version;
+process.env.APP_VERSION = 'version';
 import * as swaggerUi from 'swagger-ui-express';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';

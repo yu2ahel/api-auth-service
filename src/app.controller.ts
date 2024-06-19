@@ -11,7 +11,6 @@ import {
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from './auth/auth.service';
 import { UsersService } from './users/users.service';
-import * as process from 'node:process';
 
 @Controller()
 export class AppController {
