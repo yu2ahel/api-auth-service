@@ -27,7 +27,7 @@ export class AppController {
   @Get()
   async isWorking(): Promise<string> {
     return (
-      'App is Working - V-' +
+      'App is Working - V:' +
       process.env.APP_VERSION +
       ' - ' +
       new Date().toDateString() +
