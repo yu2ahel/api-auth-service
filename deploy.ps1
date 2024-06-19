@@ -1,14 +1,11 @@
 $newVersion = npm version patch
 
-
-
 # if $newVersion not empty do the next line
 if (!([string]::IsNullOrEmpty($newVersion)))
 {
     $envContent = Get-Content -Path .\.env
     echo $newVersion
     $updatedEnvContent = $envContent -replace '(APP_VERSION=).*', "`$1$newVersion"
-    echo $updatedEnvContent
     $updatedEnvContent | Set-Content -Path .\.env
     ssh pinkstaging2 "cd /var/www/node_apps/api-auth-service &&  sed -i 's/\(APP_VERSION=\).*/\1$newVersion/' .env"
 }
